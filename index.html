@@ -1665,7 +1665,7 @@
                 gameState.bad.tasks.push({
                     x: 40 + i * taskSpacing,
                     icon: TASK_ICONS[Math.floor(Math.random() * TASK_ICONS.length)],
-                    reachable: Math.random() >= 0.35,
+                    reachable: Math.random() >= 0.20,
                     collected: false
                 });
             }
@@ -2016,7 +2016,7 @@
 
             gameState[type].tasks = [];
             for (let i = 0; i < numTasks; i++) {
-                const isUnreachable = type === 'bad' && Math.random() < 0.35;
+                const isUnreachable = type === 'bad' && Math.random() < 0.20;
                 gameState[type].tasks.push({
                     x: 40 + i * taskSpacing,
                     icon: TASK_ICONS[Math.floor(Math.random() * TASK_ICONS.length)],
