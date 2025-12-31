@@ -1236,7 +1236,7 @@
             <button class="btn-pause" onclick="togglePause()">⏸ PAUSE</button>
             <button class="btn-reset" onclick="resetSimulation()">↺ RESET</button>
             <button class="btn-sound" onclick="toggleSound()">🔊 SOUND</button>
-            <button class="btn-info" onclick="openInfo()">❓ הסבר</button>
+            <button class="btn-info" onclick="openInfo()">❓ ABOUT</button>
         </div>
         <div class="speed-control">
             <label>SPEED:</label>
@@ -2213,73 +2213,51 @@
         <div class="info-modal">
             <button class="info-close" onclick="closeInfo()">✕</button>
             <div class="info-header">
-                <h2>🎮 מה זה קלודביליות?</h2>
+                <h2>🎮 WHAT IS CLAUDEABILITY?</h2>
             </div>
-            <div class="info-content">
+            <div class="info-content" style="direction: ltr; text-align: left;">
                 <div class="info-section">
-                    <h3>📌 הרעיון המרכזי</h3>
+                    <h3>📖 THE STORY</h3>
                     <p>
-                        כשעובדים עם סוכני AI כמו Claude Code, יש לסוכן "אופק זמן" -
-                        הזמן שהוא יכול לעבוד באופן עצמאי (בדרך כלל כשעה).
+                        Imagine you have a brilliant assistant who can work for about an hour completely on their own. They're fast, they're smart, and they never get tired. There's just one catch: every time they hit a task they can't complete alone, they have to stop... and wait for you.
                     </p>
-                    <div class="info-highlight">
-                        💡 אם כל המשימות בהישג ידו של הסוכן - הוא עובד ברצף.<br>
-                        אם חלק מהמשימות דורשות התערבות אנושית - הסוכן נעצר וממתין.
-                    </div>
-                </div>
-
-                <div class="info-section">
-                    <h3>🎯 מה הסימולציה מדגימה?</h3>
-                    <div class="info-comparison">
-                        <div class="info-box bad">
-                            <span class="info-emoji">❌</span>
-                            <h4>לא קלודבילי</h4>
-                            <p>
-                                חלק מהמשימות "באוויר" 🔒<br>
-                                הסוכן נתקע ושואל שאלות<br>
-                                המנהל חייב להפסיק ולעזור<br>
-                                הפרעות רבות ולא צפויות
-                            </p>
-                        </div>
-                        <div class="info-box good">
-                            <span class="info-emoji">✅</span>
-                            <h4>קלודבילי</h4>
-                            <p>
-                                כל המשימות בהישג יד<br>
-                                הסוכן עובד ברצף<br>
-                                סנכרון מתוכנן בסוף<br>
-                                פגישת סנכרון אחת לכל אופק
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-section">
-                    <h3>⏰ הנקודה החשובה</h3>
                     <p>
-                        העלות של "עזרה" ו"סנכרון" <strong>זהה</strong> (~1.5 שניות כל אחד).
+                        Now here's where it gets interesting. You're not sitting around waiting for them to call. You're busy with your own important work - strategic planning, client calls, writing proposals. When your assistant needs help, they can't just tap you on the shoulder. They have to wait until you finish what you're doing.
                     </p>
-                    <div class="info-highlight">
-                        🔴 <strong>לא-קלודבילי:</strong> הפרעות רבות ולא צפויות לכל אופק זמן<br>
-                        🟢 <strong>קלודבילי:</strong> פגישת סנכרון אחת מתוכננת לכל אופק זמן
-                    </div>
                     <p>
-                        🏆 <strong>התוצאה:</strong> הסוכן הקלודבילי ממקסם זמן עבודה פרודוקטיבי!
+                        This is the reality of working with AI agents like Claude Code. The agent has what we call a "Time Horizon" - roughly an hour of autonomous work capacity. But if even a single task requires human input - a password, an approval, access to a system - the entire production line grinds to a halt.
                     </p>
                 </div>
 
                 <div class="info-section">
-                    <h3>🚀 איך ליישם?</h3>
+                    <h3>🎬 WHAT YOU'RE WATCHING</h3>
                     <p>
-                        ✔️ לוודא שיש לסוכן גישה לכל מה שהוא צריך<br>
-                        ✔️ להכין הרשאות, סיסמאות, קבצים מראש<br>
-                        ✔️ להגדיר משימות שלא דורשות אישור בזמן אמת<br>
-                        ✔️ לתכנן פגישות סנכרון קבועות במקום הפרעות
+                        On the left, you see chaos. Some tasks float in the air, locked and unreachable. The agent runs into them, gets blocked, and has to cry for help. But the manager is deep in their own work! The agent waits... and waits... until the manager finishes their current task and can finally assist. Then it happens again. And again.
+                    </p>
+                    <p>
+                        On the right, you see flow. Every single task is within reach. The agent moves smoothly from one to the next, collecting them all. Only when the entire batch is complete does the agent pause for a quick sync meeting - a planned, predictable moment of coordination.
+                    </p>
+                </div>
+
+                <div class="info-section">
+                    <h3>💡 THE INSIGHT</h3>
+                    <p>
+                        Here's the beautiful twist: the time cost of "helping" and "syncing" is exactly the same - about 1.5 seconds each. The difference isn't in the cost of coordination. It's in the frequency and predictability.
+                    </p>
+                    <p>
+                        Random interruptions destroy focus. They fragment the manager's work into tiny, inefficient pieces. But a planned sync at the end of each time horizon? That's just good teamwork. The manager can schedule around it. The agent maximizes productive work time. Everyone wins.
+                    </p>
+                </div>
+
+                <div class="info-section">
+                    <h3>🚀 THE LESSON</h3>
+                    <p>
+                        "Claudeability" means designing your tasks so the AI agent can complete them end-to-end without getting stuck. Give them access upfront. Prepare credentials before you start. Define clear boundaries. Think of it like packing everything your assistant needs before sending them on a mission - because once they're out there, every "quick question" costs you both dearly.
                     </p>
                 </div>
 
                 <div class="info-footer">
-                    🎓 מתוך הסדנה "קלוד קוד אמאל׳ה" מאת <a href="https://github.com/aviz" target="_blank">Aviz - The Architect</a>
+                    🎓 From the workshop "Claude Code Amaleh" by <a href="https://github.com/aviz" target="_blank">Aviz - The Architect</a>
                 </div>
             </div>
         </div>
