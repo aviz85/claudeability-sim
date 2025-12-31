@@ -126,6 +126,180 @@
             box-shadow: 0 4px 0 #2222aa;
         }
 
+        .btn-info {
+            background: #ff44ff;
+            color: #fff;
+            box-shadow: 0 4px 0 #aa22aa;
+        }
+
+        .btn-info:hover {
+            background: #ff66ff;
+        }
+
+        /* Info Modal - Retro Style */
+        .info-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .info-overlay.visible {
+            display: flex;
+        }
+
+        .info-modal {
+            background: #1a1a2e;
+            border: 6px solid #00ff88;
+            border-radius: 8px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 0 40px #00ff88, inset 0 0 60px rgba(0, 255, 136, 0.1);
+            animation: modal-appear 0.3s ease;
+        }
+
+        @keyframes modal-appear {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .info-header {
+            background: linear-gradient(180deg, #00aa55 0%, #008844 100%);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #00ff88;
+        }
+
+        .info-header h2 {
+            font-size: 18px;
+            color: #fff;
+            text-shadow: 2px 2px 0 #005522;
+            margin: 0;
+        }
+
+        .info-close {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #ff4444;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 3px 0 #aa2222;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .info-close:hover {
+            background: #ff6666;
+        }
+
+        .info-content {
+            padding: 25px;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .info-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(0, 255, 136, 0.05);
+            border: 3px solid #333;
+            border-radius: 8px;
+        }
+
+        .info-section h3 {
+            font-size: 14px;
+            color: #00ff88;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #333;
+        }
+
+        .info-section p {
+            font-size: 10px;
+            line-height: 2;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .info-highlight {
+            background: linear-gradient(90deg, rgba(0,255,136,0.2), transparent);
+            padding: 15px;
+            border-right: 4px solid #00ff88;
+            margin: 15px 0;
+            font-size: 11px;
+            color: #88ffaa;
+        }
+
+        .info-comparison {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .info-box.bad {
+            background: rgba(255, 68, 68, 0.1);
+            border: 3px solid #ff4444;
+        }
+
+        .info-box.good {
+            background: rgba(0, 255, 136, 0.1);
+            border: 3px solid #00ff88;
+        }
+
+        .info-box h4 {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .info-box.bad h4 { color: #ff6666; }
+        .info-box.good h4 { color: #88ffaa; }
+
+        .info-box p {
+            font-size: 9px;
+            line-height: 1.8;
+        }
+
+        .info-emoji {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .info-footer {
+            text-align: center;
+            padding: 20px;
+            background: #0f0f1f;
+            border-top: 3px solid #333;
+            font-size: 9px;
+            color: #666;
+        }
+
+        .info-footer a {
+            color: #00ff88;
+            text-decoration: none;
+        }
+
         .main-container {
             display: flex;
             padding: 20px;
@@ -1062,6 +1236,7 @@
             <button class="btn-pause" onclick="togglePause()">⏸ PAUSE</button>
             <button class="btn-reset" onclick="resetSimulation()">↺ RESET</button>
             <button class="btn-sound" onclick="toggleSound()">🔊 SOUND</button>
+            <button class="btn-info" onclick="openInfo()">❓ הסבר</button>
         </div>
         <div class="speed-control">
             <label>SPEED:</label>
@@ -2017,6 +2192,97 @@
         }
 
         document.addEventListener('DOMContentLoaded', initTasks);
+
+        // ========== INFO MODAL ==========
+        function openInfo() {
+            document.getElementById('infoOverlay').classList.add('visible');
+        }
+
+        function closeInfo() {
+            document.getElementById('infoOverlay').classList.remove('visible');
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeInfo();
+        });
     </script>
+
+    <!-- INFO MODAL -->
+    <div class="info-overlay" id="infoOverlay" onclick="if(event.target === this) closeInfo()">
+        <div class="info-modal">
+            <button class="info-close" onclick="closeInfo()">✕</button>
+            <div class="info-header">
+                <h2>🎮 מה זה קלודביליות?</h2>
+            </div>
+            <div class="info-content">
+                <div class="info-section">
+                    <h3>📌 הרעיון המרכזי</h3>
+                    <p>
+                        כשעובדים עם סוכני AI כמו Claude Code, יש לסוכן "אופק זמן" -
+                        הזמן שהוא יכול לעבוד באופן עצמאי (בדרך כלל כשעה).
+                    </p>
+                    <div class="info-highlight">
+                        💡 אם כל המשימות בהישג ידו של הסוכן - הוא עובד ברצף.<br>
+                        אם חלק מהמשימות דורשות התערבות אנושית - הסוכן נעצר וממתין.
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>🎯 מה הסימולציה מדגימה?</h3>
+                    <div class="info-comparison">
+                        <div class="info-box bad">
+                            <span class="info-emoji">❌</span>
+                            <h4>לא קלודבילי</h4>
+                            <p>
+                                חלק מהמשימות "באוויר" 🔒<br>
+                                הסוכן נתקע ושואל שאלות<br>
+                                המנהל חייב להפסיק ולעזור<br>
+                                הפרעות רבות ולא צפויות
+                            </p>
+                        </div>
+                        <div class="info-box good">
+                            <span class="info-emoji">✅</span>
+                            <h4>קלודבילי</h4>
+                            <p>
+                                כל המשימות בהישג יד<br>
+                                הסוכן עובד ברצף<br>
+                                סנכרון מתוכנן בסוף<br>
+                                פגישת סנכרון אחת לכל אופק
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>⏰ הנקודה החשובה</h3>
+                    <p>
+                        העלות של "עזרה" ו"סנכרון" <strong>זהה</strong> (~1.5 שניות כל אחד).
+                    </p>
+                    <div class="info-highlight">
+                        🔴 <strong>לא-קלודבילי:</strong> הפרעות רבות ולא צפויות לכל אופק זמן<br>
+                        🟢 <strong>קלודבילי:</strong> פגישת סנכרון אחת מתוכננת לכל אופק זמן
+                    </div>
+                    <p>
+                        🏆 <strong>התוצאה:</strong> הסוכן הקלודבילי ממקסם זמן עבודה פרודוקטיבי!
+                    </p>
+                </div>
+
+                <div class="info-section">
+                    <h3>🚀 איך ליישם?</h3>
+                    <p>
+                        ✔️ לוודא שיש לסוכן גישה לכל מה שהוא צריך<br>
+                        ✔️ להכין הרשאות, סיסמאות, קבצים מראש<br>
+                        ✔️ להגדיר משימות שלא דורשות אישור בזמן אמת<br>
+                        ✔️ לתכנן פגישות סנכרון קבועות במקום הפרעות
+                    </p>
+                </div>
+
+                <div class="info-footer">
+                    🎓 מתוך הסדנה "קלוד קוד אמאל׳ה" מאת <a href="https://github.com/aviz" target="_blank">Aviz - The Architect</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
