@@ -842,13 +842,18 @@
         }
 
         .timer-display {
-            display: inline-block;
-            margin-top: -25px;
+            position: absolute;
+            top: 5px;
+            right: 10px;
             background: rgba(0,0,0,0.8);
             padding: 6px 10px;
             border: 2px solid;
             border-radius: 4px;
             font-size: 14px;
+        }
+
+        .scenario-header {
+            position: relative;
         }
 
         .scenario.bad .timer-display {
