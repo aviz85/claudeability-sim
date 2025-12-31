@@ -842,15 +842,13 @@
         }
 
         .timer-display {
-            position: absolute;
-            top: 190px;
-            right: 10px;
+            display: inline-block;
+            margin-top: 10px;
             background: rgba(0,0,0,0.8);
             padding: 8px 12px;
             border: 2px solid;
             border-radius: 4px;
             font-size: 14px;
-            z-index: 50;
         }
 
         .scenario.bad .timer-display {
@@ -1256,9 +1254,9 @@
             <div class="scenario-header">
                 <div class="scenario-title">❌ NON-CLAUDEABLE</div>
                 <div class="scenario-subtitle">Agent waits for manager to be free</div>
+                <div class="timer-display" id="badTimer">00:00</div>
             </div>
             <div class="game-area" id="badGameArea">
-                <div class="timer-display" id="badTimer">00:00</div>
                 <div class="interrupt-counter" id="badInterruptCounter">🚫 BLOCKS: 0</div>
 
                 <div class="manager-layer">
@@ -1356,9 +1354,9 @@
             <div class="scenario-header">
                 <div class="scenario-title">✅ CLAUDEABLE</div>
                 <div class="scenario-subtitle">Sync only at end of time horizon</div>
+                <div class="timer-display" id="goodTimer">00:00</div>
             </div>
             <div class="game-area" id="goodGameArea">
-                <div class="timer-display" id="goodTimer">00:00</div>
                 <div class="sync-counter" id="goodSyncCounter">🤝 SYNCS: 0</div>
 
                 <div class="manager-layer">
