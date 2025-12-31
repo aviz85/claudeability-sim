@@ -1243,6 +1243,11 @@
             <input type="range" min="0.5" max="3" step="0.5" value="1" onchange="setSpeed(this.value)">
             <span class="speed-value" id="speedValue">1x</span>
         </div>
+        <div class="speed-control">
+            <label>🔒 BLOCKED:</label>
+            <input type="range" min="0" max="50" step="5" value="20" onchange="setBlockedRate(this.value)">
+            <span class="speed-value" id="blockedValue">20%</span>
+        </div>
     </header>
 
     <div class="main-container">
@@ -1612,6 +1617,7 @@
             running: false,
             paused: false,
             speed: 1,
+            blockedRate: 0.20,
             simTime: 0,
             maxTime: 60,
 
@@ -1665,7 +1671,7 @@
                 gameState.bad.tasks.push({
                     x: 40 + i * taskSpacing,
                     icon: TASK_ICONS[Math.floor(Math.random() * TASK_ICONS.length)],
-                    reachable: Math.random() >= 0.20,
+                    reachable: Math.random() >= gameState.blockedRate,
                     collected: false
                 });
             }
@@ -2016,7 +2022,7 @@
 
             gameState[type].tasks = [];
             for (let i = 0; i < numTasks; i++) {
-                const isUnreachable = type === 'bad' && Math.random() < 0.20;
+                const isUnreachable = type === 'bad' && Math.random() < gameState.blockedRate;
                 gameState[type].tasks.push({
                     x: 40 + i * taskSpacing,
                     icon: TASK_ICONS[Math.floor(Math.random() * TASK_ICONS.length)],
@@ -2169,6 +2175,11 @@
         function setSpeed(v) {
             gameState.speed = parseFloat(v);
             document.getElementById('speedValue').textContent = v + 'x';
+        }
+
+        function setBlockedRate(v) {
+            gameState.blockedRate = parseFloat(v) / 100;
+            document.getElementById('blockedValue').textContent = v + '%';
         }
 
         function endSimulation() {
